@@ -4,32 +4,28 @@ import normalizePage from "@/utils/normalizePage";
 
 export async function POST(request: NextRequest) {
 	try {
-		const { suggestion, page } = await request.json();
+		const { score, page } = await request.json();
 
 		if (!page) {
 			return NextResponse.json({ error: "Page is required" }, { status: 400 });
 		}
 
-		if (
-			!suggestion ||
-			typeof suggestion !== "string" ||
-			suggestion.trim() === ""
-		) {
+		if (!score || typeof score !== "number" || score < 0 || score > 100) {
 			return NextResponse.json(
-				{ error: "Suggestion is required" },
+				{ error: "Score must be a number between 0 and 100" },
 				{ status: 400 },
 			);
 		}
 
 		const result = await sql`
-      INSERT INTO suggestions (suggestion_text, page, created_at, status)
-      VALUES (${suggestion.trim()}, ${normalizePage(page) || null}, NOW(), 'pending')
+      INSERT INTO scores (score, page, created_at)
+      VALUES (${score}, ${normalizePage(page) || null}, NOW())
       RETURNING id
     `;
 
 		if (result.length === 0) {
 			return NextResponse.json(
-				{ error: "Failed to submit suggestion" },
+				{ error: "Failed to submit score" },
 				{ status: 500 },
 			);
 		}
@@ -38,10 +34,10 @@ export async function POST(request: NextRequest) {
 			status: 200,
 		});
 	} catch (error) {
-		console.error("Error submitting suggestion:", error);
+		console.error("Error submitting score:", error);
 
 		return NextResponse.json(
-			{ error: "Failed to submit suggestion" },
+			{ error: "Failed to submit score" },
 			{ status: 500 },
 		);
 	}
