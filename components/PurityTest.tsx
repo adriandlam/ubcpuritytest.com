@@ -32,7 +32,6 @@ export default function PurityTest({
   };
 
   const handleSubmit = () => {
-    if (selected.length === 0) return;
     setSubmitted(true);
     setScore(100 - selected.length);
   };
@@ -186,7 +185,7 @@ export default function PurityTest({
           </section>
 
           <section className="mb-8">
-            <div className="p-4 rounded-md border">
+            <div className="p-4 rounded-md border-2 border-[#9e9176] bg-[#f8f3e6]">
               <ul className="space-y-2">
                 {prompts.map((prompt, i) => (
                   <li
@@ -215,12 +214,14 @@ export default function PurityTest({
             </div>
           </section>
 
-          <button
-            className="border-2 border-[#8e503b] bg-[#8e503b] w-full md:w-auto text-white font-semibold px-6 py-2 rounded-md cursor-pointer transition hover:bg-[#5b3e34] hover:border-[#5b3e34]"
-            onClick={handleSubmit}
-          >
-            Calculate My Score
-          </button>
+          <div className="flex justify-end">
+            <button
+              className="md:w-auto w-full border-2 border-[#8e503b] bg-[#8e503b] text-white font-semibold px-6 py-2 rounded-md cursor-pointer transition hover:bg-[#5b3e34] hover:border-[#5b3e34]"
+              onClick={handleSubmit}
+            >
+              Calculate My Score
+            </button>
+          </div>
         </>
       )}
     </div>
