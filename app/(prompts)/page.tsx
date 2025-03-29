@@ -23,17 +23,20 @@ export default function Home() {
 					</div>
 				</Link>
 
+				<Link
+					href="/sciences"
+					className="block py-8 px-4 font-bold text-xl rounded-md transition border-2 hover:bg-gray-100"
+				>
+					Sciences UBC Test
+					<div className="text-sm font-normal text-gray-600 mt-2">
+						Special questions for science majors and pre-med students
+					</div>
+				</Link>
+
 				<div className="block py-8 px-4 font-bold text-xl rounded-md border-2 bg-gray-100 text-gray-400 cursor-not-allowed">
 					Engineering Test (Coming Soon)
 					<div className="text-sm font-normal text-gray-400 mt-2">
 						Special questions for engineering students
-					</div>
-				</div>
-
-				<div className="block py-8 px-4 font-bold text-xl rounded-md border-2 bg-gray-100 text-gray-400 cursor-not-allowed">
-					Sciences Test (Coming Soon)
-					<div className="text-sm font-normal text-gray-400 mt-2">
-						Tailored for science majors and pre-med students
 					</div>
 				</div>
 			</div>
