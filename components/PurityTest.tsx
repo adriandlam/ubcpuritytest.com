@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { RedditIcon } from "react-share";
+import ShareDropdown from "./ShareDropdown";
 
 type PurityTestProps = {
   title: string;
@@ -19,6 +21,7 @@ export default function PurityTest({
   const [selected, setSelected] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(100);
+  const [showShareOptions, setShowShareOptions] = useState(false);
 
   const handleToggle = (prompt: string) => {
     setSelected((prev) =>
@@ -48,6 +51,24 @@ export default function PurityTest({
     if (score >= 10) return "Wild child! 🔥";
     return "Completely unhinged! 😈";
   };
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      const target = event.target as HTMLElement;
+      if (
+        target &&
+        !target.closest(".share-dropdown") &&
+        !target.closest(".share-button")
+      ) {
+        setShowShareOptions(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="max-w-3xl mx-auto py-10 px-4">
@@ -107,13 +128,48 @@ export default function PurityTest({
           )}
 
           <div className="text-center">
-            <button
-              type="button"
-              className="border-2 border-black font-semibold px-6 py-2 rounded-md cursor-pointer transition hover:bg-gray-50"
-              onClick={handleReset}
-            >
-              Take Again
-            </button>
+            <div className="flex justify-center space-x-4">
+              <button
+                type="button"
+                className="border-2 border-[#8e503b] bg-[#8e503b] md:w-auto text-white font-semibold px-6 py-2 rounded-md cursor-pointer transition hover:bg-[#5b3e34] hover:border-[#5b3e34]"
+                onClick={handleReset}
+              >
+                Take Again
+              </button>
+
+              <div className="relative">
+                <button
+                  type="button"
+                  className="border-2 border-[#8e503b] bg-[#8e503b] md:w-auto text-white font-semibold px-6 py-2 rounded-md cursor-pointer transition hover:bg-[#5b3e34] hover:border-[#5b3e34] flex items-center share-button"
+                  onClick={() => setShowShareOptions(!showShareOptions)}
+                >
+                  <span>Share</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="ml-2"
+                  >
+                    <path d="M18 8L12 2L6 8"></path>
+                    <path d="M12 2V16"></path>
+                    <path d="M20 16V22H4V16"></path>
+                  </svg>
+                </button>
+
+                <ShareDropdown
+                  score={score}
+                  getScoreMessage={getScoreMessage}
+                  showShareOptions={showShareOptions}
+                  setShowShareOptions={setShowShareOptions}
+                />
+              </div>
+            </div>
           </div>
         </section>
       ) : (
