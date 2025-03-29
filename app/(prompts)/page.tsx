@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Home() {
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen py-12 px-4 text-center">
-			<h1 className="text-5xl font-bold mb-6">The UBC Purity Test</h1>
+		<div className="flex flex-col items-center justify-center pb-12 px-4 text-center">
+			<p className="text-lg mb-4 italic">How innocent are you?</p>
 
 			<div className="max-w-md mb-8">
 				<p className="text-lg mb-4">
