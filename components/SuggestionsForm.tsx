@@ -1,18 +1,23 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
+
+interface Message {
+	type: "success" | "error";
+	text: string;
+}
 
 export default function SuggestionsForm() {
 	const pathname = usePathname();
 	const [suggestion, setSuggestion] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const [message, setMessage] = useState(null);
+	const [message, setMessage] = useState<Message | null>(null);
 
 	if (pathname === "/") {
 		return null;
 	}
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (!suggestion.trim()) return;
 
