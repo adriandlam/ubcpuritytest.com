@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest} from "next/server";
-import pool from "@/utils/db";
+import sql from "@/utils/db";
 
 export async function POST(request: NextRequest) {
 	try {
@@ -12,17 +12,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const query = `
+const result = await sql`
       INSERT INTO suggestions (suggestion_text, page_path, created_at, status)
-      VALUES ($1, $2, NOW(), 'pending')
+      VALUES (${suggestion.trim()}, ${page || null}, NOW(), 'pending')
       RETURNING id
     `;
-
-    const result = await pool.query(query, [suggestion.trim(), page || null]);
     
     return NextResponse.json({
       success: true,
-      id: result.rows[0].id,
+      id: result[0].id,
       message: "Suggestion submitted successfully",
     });
   } catch (error) {
