@@ -22,7 +22,9 @@ export default function PurityTest({
 	const [selected, setSelected] = useState<string[]>([]);
 	const [submitted, setSubmitted] = useState(false);
 	const [score, setScore] = useState(100);
+	const [averageScore, setAverageScore] = useState<number | null>(null);
 	const [showShareOptions, setShowShareOptions] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const handleToggle = (prompt: string) => {
 		setSelected((prev) =>
@@ -36,17 +38,30 @@ export default function PurityTest({
 		const calculatedScore = 100 - selected.length;
 		setSubmitted(true);
 		setScore(calculatedScore);
+		setIsLoading(true);
 
 		try {
-			await fetch("/api/scores", {
+			const response = await fetch("/api/scores", {
 				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
 				body: JSON.stringify({
 					score: calculatedScore,
 					page: pathname,
 				}),
 			});
+
+			const data = await response.json();
+			if (data.average_score !== undefined) {
+				setAverageScore(
+					Math.round(Number.parseFloat(data.average_score) * 10) / 10,
+				);
+			}
 		} catch (error) {
 			console.error("Error submitting score:", error);
+		} finally {
+			setIsLoading(false);
 		}
 	};
 
@@ -54,6 +69,7 @@ export default function PurityTest({
 		setSelected([]);
 		setSubmitted(false);
 		setScore(100);
+		setAverageScore(null);
 	};
 
 	const getScoreMessage = () => {
@@ -124,6 +140,30 @@ export default function PurityTest({
 							You've done {selected.length} out of {prompts.length} items on
 							this list.
 						</div>
+
+						{isLoading ? (
+							<div className="mt-4 text-gray-600">Loading average score...</div>
+						) : averageScore ? (
+							<div className="mt-6 mb-4">
+								<div className="text-gray-700">
+									<span className="font-semibold">
+										Average score for General:{" "}
+									</span>
+									<span>{averageScore}</span>
+									{score > Number(averageScore) ? (
+										<div className="ml-2 text-green-600">
+											You're more pure than average! 🌟
+										</div>
+									) : score < Number(averageScore) ? (
+										<span className="ml-2 text-amber-600">
+											(You're wilder than average! 🔥)
+										</span>
+									) : (
+										<span className="ml-2">(You're exactly average! 🎯)</span>
+									)}
+								</div>
+							</div>
+						) : null}
 					</div>
 
 					<div className="text-center">
