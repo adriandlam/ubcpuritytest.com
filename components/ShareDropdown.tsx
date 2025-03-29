@@ -1,7 +1,7 @@
 "use client";
 
-import { RedditIcon } from "react-share";
 import { useEffect, useRef } from "react";
+import { RedditIcon } from "react-share";
 
 type ShareDropdownProps = {
   score: number;

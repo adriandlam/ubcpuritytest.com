@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
-import { RedditIcon } from "react-share";
+import { useState, useEffect } from "react";
 import ShareDropdown from "./ShareDropdown";
 
 type PurityTestProps = {
@@ -70,7 +69,7 @@ export default function PurityTest({
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto py-10 px-4">
+    <div className="max-w-3xl mx-auto px-4">
       <div className="mb-8">
         <Link
           href={backLink}
@@ -100,31 +99,17 @@ export default function PurityTest({
         <section>
           <h2 className="text-2xl font-semibold mb-4">Your Results</h2>
           <div className="pl-4 py-2 mb-8 text-center">
-            <div className="text-3xl font-bold mb-2">Score: {score}</div>
+            <div className="flex justify-center mb-6">
+              <div className="w-40 h-40 rounded-full flex items-center justify-center bg-[#e6dfc3] border-4 border-[#a39a7e]">
+                <div className="text-5xl font-bold text-[#8e503b]">{score}</div>
+              </div>
+            </div>
             <div className="text-xl mb-4">{getScoreMessage()}</div>
             <div className="text-gray-700">
               You've done {selected.length} out of {prompts.length} items on
               this list.
             </div>
           </div>
-
-          {selected.length > 0 && (
-            <div className="mb-8">
-              <h3 className="text-2xl font-semibold mb-4">
-                Items you've checked off:
-              </h3>
-              <div className="bg-gray-50 p-4 rounded-md border border-gray-200">
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                  {selected.map((item) => (
-                    <li key={item} className="flex items-start">
-                      <span className="mr-2">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          )}
 
           <div className="text-center">
             <div className="flex justify-center space-x-4">
@@ -135,7 +120,6 @@ export default function PurityTest({
               >
                 Take Again
               </button>
-
               <div className="relative">
                 <button
                   type="button"
@@ -169,7 +153,30 @@ export default function PurityTest({
                 />
               </div>
             </div>
+            <div className="flex justify-center mt-4">
+              <Link href={backLink} className="flex items-center mt-4">
+                <p className="hover:underline">{backText}</p>
+              </Link>
+            </div>
           </div>
+
+          {selected.length > 0 && (
+            <div className="mb-8 mt-4">
+              <h3 className="text-2xl font-semibold mb-4">
+                Items you've checked off:
+              </h3>
+              <div className="bg-gray-50 p-4 rounded-md border border-gray-200">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  {selected.map((item) => (
+                    <li key={item} className="flex items-start">
+                      <span className="mr-2">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
         </section>
       ) : (
         <>
