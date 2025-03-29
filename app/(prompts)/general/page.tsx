@@ -3,7 +3,6 @@
 import { GENERAL } from "@/data/prompts";
 import Link from "next/link";
 import { useState } from "react";
-
 export default function GeneralPage() {
 	const [selected, setSelected] = useState<string[]>([]);
 	const [submitted, setSubmitted] = useState(false);

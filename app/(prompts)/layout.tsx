@@ -1,3 +1,5 @@
+import SuggestionsForm from "@/components/SuggestionsForm";
+
 export default function PromptLayout({
 	children,
 }: {
@@ -10,6 +12,8 @@ export default function PromptLayout({
 				<h1 className="text-5xl font-bold mb-6">The UBC Purity Test</h1>
 			</div>
 			{children}
+
+			<SuggestionsForm />
 		</div>
 	);
 }
