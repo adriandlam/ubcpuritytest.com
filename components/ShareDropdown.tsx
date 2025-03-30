@@ -148,6 +148,8 @@ export default function ShareDropdown({
           <button
             onClick={() => handleShare("native")}
             className="w-full flex items-center px-4 py-2 cursor-pointer text-gray-700 hover:bg-gray-100"
+            data-umami-event="Share Result"
+            data-umami-event-type="navigator"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -174,6 +176,8 @@ export default function ShareDropdown({
         <div
           onClick={() => handleShare("reddit")}
           className="w-full flex items-center px-4 py-2 cursor-pointer text-gray-700 hover:bg-gray-100"
+          data-umami-event="Share Result"
+          data-umami-event-type="reddit"
         >
           <RedditIcon size={16} className="mr-2" />
           <span>Share on Reddit</span>
@@ -181,6 +185,8 @@ export default function ShareDropdown({
 
         <button
           className="w-full flex items-center px-4 py-2 cursor-pointer text-gray-700 hover:bg-gray-100"
+          data-umami-event="Share Result"
+          data-umami-event-type="copy"
           onClick={() =>
             copyToClipboard(
               `I scored ${score}/100 on the UBC Purity Test! ${getScoreMessage()} Try it yourself! ${
@@ -204,7 +210,7 @@ export default function ShareDropdown({
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
           </svg>
-          <span>Copy score</span>
+          <span>Copy to clipboard</span>
         </button>
       </div>
     </div>
