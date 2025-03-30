@@ -81,8 +81,9 @@ const GENERAL = [
   "Been with a guy shorter than 5'6, or a girl taller than 6'0",
   "Had more than 2 partners in a school year",
 
-  // PARTY & NIGHTLIFE (14 questions)
+  // PARTY & NIGHTLIFE (15 questions)
   "Attended a frat party",
+  "Blacked out at Block Party",
   "Been to The Pit 3+ weeks in a row",
   "Made out with someone at The Pit",
   "Made out with someone at Koerner's Pub",
@@ -249,7 +250,6 @@ const SAUDER = [
   "Got below a 60 in either MATH 100 or MATH 101",
   "Failed a written exam",
   "Never been to office hours",
-  "Passed a class because of ChatGPT",
   "Been part of a WeChat group that shares exam answers",
   "Had to give Berkowitz chocolate for being late",
   "Did nothing for a group project and still got credit",
@@ -311,6 +311,7 @@ const SAUDER = [
   "Lied in a co-op interview",
   "Lied in a job interview",
   "Introduced yourself by bragging about where you've worked",
+  "Have had LinkedIn premium",
   "Stalked someone on LinkedIn",
   "Have bragged about how much money you make",
   "Claimed your summer 'consulting' job wasn't just data entry",
