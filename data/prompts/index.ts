@@ -227,7 +227,7 @@ const SCIENCES = [
   "Used a science pick-up line on someone and it actually worked",
 
   // Science Pride & Traditions (10 questions)
-  "Owned UBC Science merchandise (hoodie, t-shirt, etc.)",
+  "Own UBC Science merchandise (hoodie, t-shirt, etc.)",
   "Participated in Science Olympics",
   "Attended the Great Science Debate",
   "Taken part in the Chemistry Magic Show",
@@ -348,8 +348,8 @@ const SAUDER = [
   "Can use Excel without a mouse",
   "Wanted to work at one of: Deloitte, PWC, KPMG, EY",
   "Talked about dropping out to start a 'startup'",
-  "Owned a Marc Jacobs tote bag",
-  "Owned a Goyard tote bag",
+  "Own a Marc Jacobs tote bag",
+  "Own a Goyard tote bag",
   "Own a Canada Goose jacket",
   "Own an Arcteryx jacket or vest",
   "Own a Patagonia vest",
