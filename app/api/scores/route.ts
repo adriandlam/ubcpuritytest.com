@@ -1,6 +1,6 @@
-import { NextResponse, type NextRequest } from "next/server";
 import sql from "@/utils/db";
 import normalizePage from "@/utils/normalizePage";
+import { type NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
 	try {
@@ -30,9 +30,24 @@ export async function POST(request: NextRequest) {
 			);
 		}
 
-		return NextResponse.json(null, {
-			status: 200,
-		});
+		const avgResult = await sql`
+	SELECT 
+		page,
+		AVG(score) as average_score
+	FROM
+		scores
+	WHERE page = ${normalizePage(page)}
+	GROUP BY page
+	`;
+
+		const avgScore = avgResult.length > 0 ? avgResult[0].average_score : null;
+
+		return NextResponse.json(
+			{
+				id: result[0].id,
+				average_score: avgScore,
+			}
+		);
 	} catch (error) {
 		console.error("Error submitting score:", error);
 
