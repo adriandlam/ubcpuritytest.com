@@ -172,12 +172,15 @@ export default function PurityTest({
 								type="button"
 								className="border-2 border-[#8e503b] bg-[#8e503b] md:w-auto text-white font-semibold px-6 py-2 rounded-md cursor-pointer transition hover:bg-[#5b3e34] hover:border-[#5b3e34]"
 								onClick={handleReset}
+								data-umami-event="Reset Test"
 							>
 								Take Again
 							</button>
 							<div className="relative">
 								<button
 									type="button"
+									data-umami-event="Open Share Menu"
+									data-umami-event-score={score}
 									className="border-2 border-[#8e503b] bg-[#8e503b] md:w-auto text-white font-semibold px-6 py-2 rounded-md cursor-pointer transition hover:bg-[#5b3e34] hover:border-[#5b3e34] flex items-center share-button"
 									onClick={() => setShowShareOptions(!showShareOptions)}
 								>
@@ -280,6 +283,7 @@ export default function PurityTest({
 						<button
 							className="md:w-auto w-full border-2 border-[#8e503b] bg-[#8e503b] text-white font-semibold px-6 py-2 rounded-md cursor-pointer transition hover:bg-[#5b3e34] hover:border-[#5b3e34]"
 							onClick={handleSubmit}
+							data-umami-event="Calculate Score"
 						>
 							Calculate My Score
 						</button>
