@@ -1,36 +1,48 @@
-import { NextResponse, type NextRequest} from "next/server";
-import pool from "@/utils/db";
+import { NextResponse, type NextRequest } from "next/server";
+import sql from "@/utils/db";
+import normalizePage from "@/utils/normalizePage";
 
 export async function POST(request: NextRequest) {
 	try {
 		const { suggestion, page } = await request.json();
 
-    if (!suggestion || typeof suggestion !== 'string' || suggestion.trim() === '') {
-      return NextResponse.json(
-        { error: "Suggestion is required" },
-        { status: 400 }
-      );
-    }
+		if (!page) {
+			return NextResponse.json({ error: "Page is required" }, { status: 400 });
+		}
 
-    const query = `
-      INSERT INTO suggestions (suggestion_text, page_path, created_at, status)
-      VALUES ($1, $2, NOW(), 'pending')
+		if (
+			!suggestion ||
+			typeof suggestion !== "string" ||
+			suggestion.trim() === ""
+		) {
+			return NextResponse.json(
+				{ error: "Suggestion is required" },
+				{ status: 400 },
+			);
+		}
+
+		const result = await sql`
+      INSERT INTO suggestions (suggestion_text, page, created_at, status)
+      VALUES (${suggestion.trim()}, ${normalizePage(page) || null}, NOW(), 'pending')
       RETURNING id
     `;
 
-    const result = await pool.query(query, [suggestion.trim(), page || null]);
-    
-    return NextResponse.json({
-      success: true,
-      id: result.rows[0].id,
-      message: "Suggestion submitted successfully",
-    });
-  } catch (error) {
-    console.error("Error submitting suggestion:", error);
-    
-    return NextResponse.json(
-      { error: "Failed to submit suggestion" },
-      { status: 500 }
-    );
-  }
+		if (result.length === 0) {
+			return NextResponse.json(
+				{ error: "Failed to submit suggestion" },
+				{ status: 500 },
+			);
+		}
+
+		return NextResponse.json(null, {
+			status: 200,
+		});
+	} catch (error) {
+		console.error("Error submitting suggestion:", error);
+
+		return NextResponse.json(
+			{ error: "Failed to submit suggestion" },
+			{ status: 500 },
+		);
+	}
 }

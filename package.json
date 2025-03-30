@@ -11,9 +11,10 @@
 	},
 	"dependencies": {
 		"next": "15.2.4",
-		"pg": "^8.14.1",
+		"postgres": "^3.4.5",
 		"react": "^19.0.0",
-		"react-dom": "^19.0.0"
+		"react-dom": "^19.0.0",
+		"react-share": "^5.2.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",

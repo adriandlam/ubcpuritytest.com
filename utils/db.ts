@@ -1,11 +1,6 @@
-import { Pool } from "pg";
+import postgres from "postgres";
 
-const pool = new Pool({
-  connectionString: process.env.DB_URL,
-  ssl:
-    process.env.NODE_ENV === "production"
-      ? { rejectUnauthorized: false }
-      : false,
-});
+const connectionString = process.env.DATABASE_URL || "";
+const sql = postgres(connectionString);
 
-export default pool;
+export default sql;
