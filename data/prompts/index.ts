@@ -8,6 +8,9 @@
 // gotten a haircut from the nest barber
 // cold plunge at wreck
 // saw an ex in class
+// missed an exam
+// made a reddit post complaining about having no friends
+// made a reddit post complaining about an exam
 const GENERAL = [
   // Academic (15 questions)
   "Been on academic probation",
@@ -126,6 +129,8 @@ const GENERAL = [
   "Gone on the seawall to cure a hangover",
 ];
 
+// dropped CPSC 110 because it was too hard
+// failed CPSC 110
 const SCIENCES = [
   // Core Science Experiences (15 questions)
   "Failed a required science course and had to retake it",
@@ -245,81 +250,119 @@ const SCIENCES = [
 ];
 
 const SAUDER = [
-  // Core Sauder Experiences (15 questions)
-  "Humble bragged about your internship in class",
-  "Studied at the treadmill desk in CLC",
-  "Been kicked out of CLC by the flashing lights",
-  "Been kicked out of the CLC computer lab by the librarian",
-  "Logged into iClicker when you weren't in class",
-  "Kicked someone out of a room you didn't book",
-  "Been called out by the librarian for eating food in CLC",
-  "Purchased Sauder merch",
-  "Taken food from HEWE without registering",
-  "Been to POITs",
-  "Been to POITs more than 2 times",
-  "Been to POITs more than 5 times",
-  "Taken someone home from POITs",
-  "Actually joined the business frat",
-  "Matched with a Sauder student on a dating app",
-  "Matched with a TA on a dating app",
-  "Attended a case comp just to hook up",
-  "Actually hooked up with someone at a case comp",
-  "Attended an orgy at a case comp",
-  "Pitched a business idea at a party",
-  "Described yourself as a 'go-getter' or 'self-starter' in a non-ironic way",
-  "Done more than 3 coffee chats in a day",
-  "Done a coffee chat in Loafe",
-  "Done more than 3 interviews in a day",
-  "Underdressed for your COMM 101 presentation",
-  "Gave a presentation hungover",
-  "Gave a presentation on under 6 hours of sleep",
-  "Avoided telling people you're in Sauder",
-  'Been called a "Sauder Snake"',
-  'Used the phrase "circle back" or "touch base" unironically',
-  "Gambled in class",
-  "Gambled in CLC",
-  "Bought cryptocurrency",
-  "In a fantasy league",
-  "Been asked to do a panel for a Sauder class",
-  "Own 3+ quarter zips",
-  'Used an acronym like "EOD" in a casual conversation',
-  "Been rejected by every club you applied for",
-  "Decorated your room with motivational quotes",
-  "Send a calendar invite or used Calendly for a friendly hangout",
-  "Been ghosted by an upper-year student on LinkedIn",
-  "Ghosted a lower-year student asking for advice on LinkedIn",
-  "Attended a business frat event",
-  "Took detailed notes at a social gathering",
-  "Won a case competition",
-  "Waited over 2 months for the CUS to process a refund",
-  "Made a personal budget spreadsheet",
-  "Can use Excel without a mouse",
-  // Academics (15 questions)
+  // ACADEMIC LIFE (20 questions)
   "Been told by a prof to put your lid down",
   "Skipped over 3 classes despite the syllabus saying you'd fail",
   "Relied on Wize prep to pass a class",
   "Failed MATH 100/104",
   "Failed MATH 101/105",
+  "Got below a 60 in either MATH 100 or MATH 101",
   "Failed a written exam",
   "Never been to office hours",
   "Passed a class because of ChatGPT",
+  "Been part of a WeChat group that shares exam answers",
+  "Had to give Berkowitz chocolate for being late",
+  "Did nothing for a group project and still got credit",
   "Got rejected from your first choice specialization",
   "Had trouble calculating the slope of a line on an exam",
+  "Studied at CLC for 2+ hours and got absolutely nothing done",
+  "Average has dropped 25%+ since highschool",
   "Slept overnight in Sauder",
+  "Given a presentation hungover",
+  "Given a presentation on under 6 hours of sleep",
+  "Underdressed for your COMM 101 presentation",
+
+  // SAUDER SPACES (16 questions)
+  "Studied at the treadmill desk in CLC",
+  "Been kicked out of CLC by the flashing lights",
+  "Been kicked out of the CLC computer lab by the librarian",
+  "Kicked someone out of a study room you didn't book",
+  "Been called out by the librarian for eating food in CLC",
+  "Used the Henry Angus elevator just to avoid walking up one flight of stairs",
+  "Tried to use the coffee machine while it was broken",
+  "Cried in a bathroom stall",
   "Purchased food from the Sauder store",
   "Bought coffee from Loafe at least once per day",
-  "Waited over 30 minutes at Tim Hortons",
-  // Career
+  "Bought coffee from Tims at least once per day",
+  "Waited over 30 minutes at Tims",
+  "Purchased Sauder merch",
+  "Taken food from HEWE without registering",
+  "Gambled in CLC",
+  "Done a coffee chat in Loafe",
+
+  // POITS CULTURE (4 questions)
+  "Been to POITS",
+  "Been to POITS more than 2 times",
+  "Been to POITS more than 5 times",
+  "Blacked out at POITS",
+  "Taken someone home from POITS",
+
+  // SOCIAL LIFE & DATING (7 questions)
+  "Matched with a Sauder student on a dating app",
+  "Matched with a TA on a dating app",
+  "Attended a case comp just to hook up",
+  "Actually hooked up with someone at a case comp",
+  "Attended an orgy at a case comp",
+  "Coffee chatted someone you thought was cute",
+  "Took detailed notes at a social gathering",
+
+  // CAREER & NETWORKING (19 questions)
+  "Humble bragged about your internship in class",
+  "Logged into iClicker when you weren't in class",
+  "Done more than 3 coffee chats in a day",
+  "Done more than 3 interviews in a day",
+  "Been ghosted by an upper-year student on LinkedIn",
+  "Ghosted a lower-year student asking for advice on LinkedIn",
+  "Used a free CUS headshot as your LinkedIn profile pic",
   "Faked your LinkedIn experiences",
   "Made it to fourth year without an internship",
   "Done an unpaid internship",
   "Been fired from an internship",
-  "Lied in your co-op interview",
+  "Lied in a co-op interview",
+  "Lied in a job interview",
   "Introduced yourself by bragging about where you've worked",
   "Stalked someone on LinkedIn",
-  'Talked about dropping out to start a "startup"',
-  "Made fun of someone's LinkedIn with friends",
-  "Added someone on LinkedIn immiediately after meeting them",
+  "Have bragged about how much money you make",
+  "Claimed your summer 'consulting' job wasn't just data entry",
+  "Added someone on LinkedIn immediately after meeting them",
+  "Brought a company-branded water bottle to campus",
+
+  // RESUME & CLUB LIFE (7 questions)
+  "Been rejected by every club you applied for",
+  "Been asked to do a panel for a Sauder class",
+  "Added a club role to your resume despite not doing anything",
+  "Have more clubs than internships on your resume",
+  "Won a case competition",
+  "Waited over 2 months for the CUS to process a refund",
+  "Paid for co-op and still couldn't get a job",
+
+  // BUSINESS CULTURE & STEREOTYPES (24 questions)
+  "Pitched a business idea at a party",
+  "Described yourself as a 'go-getter' or 'self-starter' in a non-ironic way",
+  "Avoided telling people you're in Sauder",
+  "Been called a 'Sauder Snake'",
+  "Have an American Express card",
+  "Used the phrase 'circle back' or 'touch base' unironically",
+  "Gambled in class",
+  "In a fantasy league",
+  "Own 3+ quarter zips",
+  "Used an acronym like 'EOD' in a casual conversation",
+  "Decorated your room with motivational quotes",
+  "Send a calendar invite or used Calendly for a friendly hangout",
+  "Actually joined the business frat",
+  "Attended a business frat event",
+  "Have mentioned your parents pay for school without being asked",
+  "Group roasted someone's LinkedIn profile",
+  "Made fun of Arts students for being jobless",
+  "Made a personal budget spreadsheet",
+  "Can use Excel without a mouse",
+  "Wanted to work at one of: Deloitte, PWC, KPMG, EY",
+  "Talked about dropping out to start a 'startup'",
+  "Owned a Marc Jacobs tote bag",
+  "Owned a Goyard tote bag",
+  "Own a Canada Goose jacket",
+  "Own an Arcteryx jacket or vest",
+  "Own a Patagonia vest",
 ];
 
 export { GENERAL, SCIENCES, SAUDER };
