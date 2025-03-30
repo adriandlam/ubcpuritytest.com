@@ -1,132 +1,122 @@
-// pulled a firelarm in first year dorms
-// stolen dining hall food
-// made out with someone at rose garde
-// bought the beer tower at browns
-// are the "go-to" person for restaurant recommendations
-// used and deleted fantuan for a boba deal
-// used and deleted hinbor for a boba deal
-// gotten a haircut from the nest barber
-// cold plunge at wreck
-// saw an ex in class
-// missed an exam
-// made a reddit post complaining about having no friends
-// made a reddit post complaining about an exam
 const GENERAL = [
-  // Academic (15 questions)
+  // ACADEMIC LIFE (19 questions)
+  "Got above an 85 without showing up to class",
+  "Missed an exam",
   "Been on academic probation",
+  "Failed an exam",
   "Failed a course and had to retake it",
-  "Skipped an 8 AM class for an entire term",
+  "Skipped an 8AM class for an entire term",
   "Fallen asleep in the IKB silent section",
   "Submitted an assignment to Canvas less than 1 minute before deadline",
   "Used ChatGPT to write an entire essay",
   "Changed your major more than once",
-  "Attended lecture still drunk from the night before",
-  "Had a professor call you out for being on your phone",
+  "Attended lecture hungover or drunk",
   "Studied for 24+ hours straight during finals season",
   "Had a mental breakdown in a library during finals week",
   "Skipped a midterm because you were too hungover",
-  "Taken a class just because you heard it was an easy A",
   "Cheated on an exam and got away with it",
-  "Pretended not to see a professor outside of class",
+  "Made a Reddit post complaining about an exam",
+  "Complained 5+ times about Workday",
+  "Saw an ex in class",
+  "Had sex in an IKB study room",
 
-  // Campus Life (15 questions)
+  // RESIDENCE & CAMPUS LIFE (15 questions)
   "Lived in a student residence building for more than one year",
   "Set off the fire alarm in residence while cooking",
-  "Snuck alcohol into a dry residence",
-  "Taken the 99 B-Line completely packed at rush hour",
-  "Spent a night at Koerner Library during finals",
-  "Broke the printer at a campus library right before your paper was due",
-  "Used a fake student ID to get into the AMS Nest (Pit) after hours",
+  "Pulled a fire alarm in first year dorms",
+  "Stolen dining hall food",
   "Been kicked out of a campus building for staying too late",
-  "Used the UBC Aquatic Centre showers because your residence water was out",
-  "Streaked across Main Mall during a campus event",
   "Had a roommate conflict that required an RA to mediate",
-  "Searched for the UBC steam tunnels",
-  "Lived in the 'worst' residence building (Totem/Vanier/Gage)",
-  "Taken a campus blue phone picture without actually pressing the button",
+  "Lived in the 'worst' residence building (Vanier/Gage)",
   "Slept in a campus building because you missed the last bus home",
+  "Made instant ramen in your dorm kettle",
+  "Stolen food from the dining hall",
+  "Snuck alcohol into the dorms",
+  "Hooked up in your dorm while your roommate was sleeping",
+  "Hooked up with someone who lived in your residence building",
+  "Stolen something from the UBC Bookstore",
+  "Had less than $100 in your bank account",
 
-  // Iconic UBC Experiences (15 questions)
+  // TRANSPORTATION & COMMUTING (5 questions)
+  "Taken the 25/33/49/R4 while packed in the morning to campus",
+  "Been skipped by a bus that was too packed",
+  "Been late to class because of transit",
+  "Gotten completely soaked walking to class because you forgot an umbrella",
+  "Made a Reddit post complaining about having no friends",
+
+  // ICONIC UBC EXPERIENCES (13 questions)
   "Taken a photo with the UBC sign at University Boulevard",
   "Participated in Storm the Wall",
-  "Joined the UBC Polar Bear Swim at Wreck Beach",
+  "Did Storm the Wall",
   "Slid down the hill by the Rose Garden on a lunch tray after it snowed",
-  "Gone skinny dipping at Wreck Beach",
-  "Participated in UBC's Day of the Longboat",
-  "Gotten completely soaked walking to class because you forgot an umbrella",
-  "Went to the Pit on a Wednesday night",
-  "Studied at Nitobe Garden during cherry blossom season",
   "Witnessed the Engineer's red dye in the fountain prank",
-  "Attended a UBC Thunderbirds game just to get drunk",
-  "Climbed onto the roof of a campus building",
   "Joined the UBC undie run",
-  "Attended a faculty boat cruise and got excessively drunk",
-  "Been to a Comedy Wednesday at the Gallery",
+  "Met Kip (R.I.P.)",
+  "Gone swimming in the fountain",
+  "Poured dish soap into the fountain",
+  "Vandalized the engineering sign",
+  "Streaked across Main Mall",
+  "Done a cherry blossom photoshoot",
+  "Had your food eaten/attacked by seagulls",
 
-  // Social & Dating (15 questions)
-  "Hooked up with someone from your faculty",
-  "Hooked up with someone from a rival faculty",
-  "Had a walk of shame across campus in last night's clothes",
-  "Made out with someone at The Pit",
-  "Made out with someone at Koerner's Pub",
-  "Hooked up in a campus building after hours",
+  // WRECK BEACH (3 questions)
+  "Joined the UBC Polar Bear Swim at Wreck Beach",
+  "Gone skinny dipping at Wreck Beach",
+  "Cold plunged at Wreck",
   "Hooked up at Wreck Beach",
+
+  // DATING & HOOKUPS (14 questions)
+  "Hooked up with someone from your faculty",
+  "Matched with a classmate on a dating app",
+  "Had a walk of shame across campus in last night's clothes",
+  "Done a walk of shame across campus",
   "Been caught by campus security while getting intimate",
   "Downloaded dating apps just to find UBC students",
-  "Hooked up with someone who lived in your residence building",
   "Matched with a TA or professor on a dating app",
   "Hooked up with more than 3 people in one term",
   "Had someone slide into your UBC Canvas DMs",
   "Caught feelings for your study buddy",
   "Had a relationship end because of faculty rivalry (Eng vs. Arts, etc.)",
+  "Made out with someone at Rose Garden",
+  "Been with a guy shorter than 5'6, or a girl taller than 6'0",
+  "Had more than 2 partners in a school year",
 
-  // Party & Nightlife (10 questions)
-  "Attended a frat party on Fraternity Row",
-  "Been to The Pit three weeks in a row",
+  // PARTY & NIGHTLIFE (14 questions)
+  "Attended a frat party",
+  "Been to The Pit 3+ weeks in a row",
+  "Made out with someone at The Pit",
+  "Made out with someone at Koerner's Pub",
+  "Blacked out at the club",
+  "Used a fake ID to get into the Pit",
   "Pre-gamed before a UBC sporting event",
   "Participated in Arts Week/Science Week/Engineering Week drinking events",
   "Thrown up in a campus bathroom from drinking too much",
-  "Snuck alcohol into a campus event",
-  "Been too drunk to make it back to your dorm and crashed at a friend's",
-  "Attended a house party in Wesbrook Village",
+  "Gone on a St. Patty's/Halloween bender for more than 3 days",
   "Done the UBC bar crawl (Pit, Koerner's, Gallery)",
-  "Crashed an event just for the free alcohol",
+  "Partied in the magic forest",
+  "Went to the Pit on a Wednesday night",
+  "Bought the beer tower at Browns",
 
-  // Food & Vancouver Culture (10 questions)
-  "Survived on nothing but Tim Hortons for an entire day",
-  "Stolen food from the dining hall",
-  "Spent more than $500 on UBC Food Services in a month",
+  // FOOD & DINING (7 questions)
+  "Ate only Tim Hortons for an entire day",
   "Eaten at Uncle Fatih's after 2 AM",
-  "Gone to Rain or Shine just to procrastinate studying",
   "Ordered bubble tea delivery to campus more than once a week",
-  "Spent more than $100 at Sushi Toshi in one sitting",
-  "Made instant ramen in your dorm kettle",
-  "Spent your entire month's food budget before midterms",
-  "Waited in line for 45+ minutes at Jamjar during lunch rush",
+  "Done multiple Big Way runs in a week",
+  "Used and deleted Fantuan for a boba deal",
+  "Used and deleted Hinbor for a boba deal",
+  "Are the 'go-to' person for restaurant recommendations",
 
-  // Risky Business (10 questions)
-  "Had sex in an IKB study room",
-  "Hooked up in your dorm while your roommate was sleeping",
-  "Stolen something from the UBC Bookstore",
-  "Jumped the fare gates at a SkyTrain station",
-  "Smoked weed on campus",
-  "Snuck into the UBC pools after hours",
-  "Accessed a restricted area of campus using someone else's key card",
-  "Made a fake student ID to get student discounts",
-  "Hooked up with a UBC varsity athlete",
-  "Had a threesome with UBC students",
-
-  // Vancouver & Miscellaneous (10 questions)
+  // VANCOUVER & BEYOND (6 questions)
   "Hiked the Grouse Grind hungover",
-  "Gone to Whistler for a weekend and skipped Monday classes",
-  "Been late to class because the SkyTrain broke down",
+  "Skipped class to go to Whistler",
   "Spent over $200 at a downtown club in one night",
-  "Witnessed a movie being filmed on campus and tried to get in the shot",
-  "Called in sick to work/class to go to the beach on a sunny day",
-  "Attended 4/20 at Sunset Beach",
-  "Complained about Vancouver housing prices for more than 30 minutes straight",
+  "Witnessed a movie being filmed on campus",
+  "Complained about housing prices for more than 30 minutes straight",
   "Been caught in the rain without an umbrella more than 5 times",
-  "Gone on the seawall to cure a hangover",
+  "Gotten a haircut from the Nest barber",
+
+  // CAMPUS BUILDINGS & SPACES (2 questions)
+  "Hooked up in a campus building after hours",
 ];
 
 // dropped CPSC 110 because it was too hard
