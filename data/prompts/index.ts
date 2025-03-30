@@ -1,3 +1,13 @@
+// pulled a firelarm in first year dorms
+// stolen dining hall food
+// made out with someone at rose garde
+// bought the beer tower at browns
+// are the "go-to" person for restaurant recommendations
+// used and deleted fantuan for a boba deal
+// used and deleted hinbor for a boba deal
+// gotten a haircut from the nest barber
+// cold plunge at wreck
+// saw an ex in class
 const GENERAL = [
   // Academic (15 questions)
   "Been on academic probation",
@@ -15,7 +25,7 @@ const GENERAL = [
   "Taken a class just because you heard it was an easy A",
   "Cheated on an exam and got away with it",
   "Pretended not to see a professor outside of class",
-  
+
   // Campus Life (15 questions)
   "Lived in a student residence building for more than one year",
   "Set off the fire alarm in residence while cooking",
@@ -32,7 +42,7 @@ const GENERAL = [
   "Lived in the 'worst' residence building (Totem/Vanier/Gage)",
   "Taken a campus blue phone picture without actually pressing the button",
   "Slept in a campus building because you missed the last bus home",
-  
+
   // Iconic UBC Experiences (15 questions)
   "Taken a photo with the UBC sign at University Boulevard",
   "Participated in Storm the Wall",
@@ -49,7 +59,7 @@ const GENERAL = [
   "Joined the UBC undie run",
   "Attended a faculty boat cruise and got excessively drunk",
   "Been to a Comedy Wednesday at the Gallery",
-  
+
   // Social & Dating (15 questions)
   "Hooked up with someone from your faculty",
   "Hooked up with someone from a rival faculty",
@@ -66,7 +76,7 @@ const GENERAL = [
   "Had someone slide into your UBC Canvas DMs",
   "Caught feelings for your study buddy",
   "Had a relationship end because of faculty rivalry (Eng vs. Arts, etc.)",
-  
+
   // Party & Nightlife (10 questions)
   "Attended a frat party on Fraternity Row",
   "Been to The Pit three weeks in a row",
@@ -78,7 +88,7 @@ const GENERAL = [
   "Attended a house party in Wesbrook Village",
   "Done the UBC bar crawl (Pit, Koerner's, Gallery)",
   "Crashed an event just for the free alcohol",
-  
+
   // Food & Vancouver Culture (10 questions)
   "Survived on nothing but Tim Hortons for an entire day",
   "Stolen food from the dining hall",
@@ -90,7 +100,7 @@ const GENERAL = [
   "Made instant ramen in your dorm kettle",
   "Spent your entire month's food budget before midterms",
   "Waited in line for 45+ minutes at Jamjar during lunch rush",
-  
+
   // Risky Business (10 questions)
   "Had sex in an IKB study room",
   "Hooked up in your dorm while your roommate was sleeping",
@@ -102,7 +112,7 @@ const GENERAL = [
   "Made a fake student ID to get student discounts",
   "Hooked up with a UBC varsity athlete",
   "Had a threesome with UBC students",
-  
+
   // Vancouver & Miscellaneous (10 questions)
   "Hiked the Grouse Grind hungover",
   "Gone to Whistler for a weekend and skipped Monday classes",
@@ -113,7 +123,7 @@ const GENERAL = [
   "Attended 4/20 at Sunset Beach",
   "Complained about Vancouver housing prices for more than 30 minutes straight",
   "Been caught in the rain without an umbrella more than 5 times",
-  "Gone on the seawall to cure a hangover"
+  "Gone on the seawall to cure a hangover",
 ];
 
 const SCIENCES = [
@@ -231,7 +241,85 @@ const SCIENCES = [
   "Helped organize a Science department event",
   "Represented UBC Sciences at a high school recruitment event",
   "Been featured on the UBC Science social media",
-  "Participated in a departmental traditions (Physics Beer Garden, Chem social, etc.)"
+  "Participated in a departmental traditions (Physics Beer Garden, Chem social, etc.)",
 ];
 
-export { GENERAL, SCIENCES };
+const SAUDER = [
+  // Core Sauder Experiences (15 questions)
+  "Humble bragged about your internship in class",
+  "Studied at the treadmill desk in CLC",
+  "Been kicked out of CLC by the flashing lights",
+  "Been kicked out of the CLC computer lab by the librarian",
+  "Logged into iClicker when you weren't in class",
+  "Kicked someone out of a room you didn't book",
+  "Been called out by the librarian for eating food in CLC",
+  "Purchased Sauder merch",
+  "Taken food from HEWE without registering",
+  "Been to POITs",
+  "Been to POITs more than 2 times",
+  "Been to POITs more than 5 times",
+  "Taken someone home from POITs",
+  "Actually joined the business frat",
+  "Matched with a Sauder student on a dating app",
+  "Matched with a TA on a dating app",
+  "Attended a case comp just to hook up",
+  "Actually hooked up with someone at a case comp",
+  "Attended an orgy at a case comp",
+  "Pitched a business idea at a party",
+  "Described yourself as a 'go-getter' or 'self-starter' in a non-ironic way",
+  "Done more than 3 coffee chats in a day",
+  "Done a coffee chat in Loafe",
+  "Done more than 3 interviews in a day",
+  "Underdressed for your COMM 101 presentation",
+  "Gave a presentation hungover",
+  "Gave a presentation on under 6 hours of sleep",
+  "Avoided telling people you're in Sauder",
+  'Been called a "Sauder Snake"',
+  'Used the phrase "circle back" or "touch base" unironically',
+  "Gambled in class",
+  "Gambled in CLC",
+  "Bought cryptocurrency",
+  "In a fantasy league",
+  "Been asked to do a panel for a Sauder class",
+  "Own 3+ quarter zips",
+  'Used an acronym like "EOD" in a casual conversation',
+  "Been rejected by every club you applied for",
+  "Decorated your room with motivational quotes",
+  "Send a calendar invite or used Calendly for a friendly hangout",
+  "Been ghosted by an upper-year student on LinkedIn",
+  "Ghosted a lower-year student asking for advice on LinkedIn",
+  "Attended a business frat event",
+  "Took detailed notes at a social gathering",
+  "Won a case competition",
+  "Waited over 2 months for the CUS to process a refund",
+  "Made a personal budget spreadsheet",
+  "Can use Excel without a mouse",
+  // Academics (15 questions)
+  "Been told by a prof to put your lid down",
+  "Skipped over 3 classes despite the syllabus saying you'd fail",
+  "Relied on Wize prep to pass a class",
+  "Failed MATH 100/104",
+  "Failed MATH 101/105",
+  "Failed a written exam",
+  "Never been to office hours",
+  "Passed a class because of ChatGPT",
+  "Got rejected from your first choice specialization",
+  "Had trouble calculating the slope of a line on an exam",
+  "Slept overnight in Sauder",
+  "Purchased food from the Sauder store",
+  "Bought coffee from Loafe at least once per day",
+  "Waited over 30 minutes at Tim Hortons",
+  // Career
+  "Faked your LinkedIn experiences",
+  "Made it to fourth year without an internship",
+  "Done an unpaid internship",
+  "Been fired from an internship",
+  "Lied in your co-op interview",
+  "Introduced yourself by bragging about where you've worked",
+  "Stalked someone on LinkedIn",
+  'Talked about dropping out to start a "startup"',
+  "Made fun of someone's LinkedIn with friends",
+  "Added someone on LinkedIn immiediately after meeting them",
+];
+
+export { GENERAL, SCIENCES, SAUDER };

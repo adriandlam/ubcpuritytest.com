@@ -20,12 +20,12 @@ const TEST_CATEGORIES: TestCategory[] = [
     description: "Special questions for science majors and pre-med students",
     path: "/sciences",
   },
-  // {
-  // 	id: "business",
-  // 	title: "Business UBC Test",
-  // 	description: "Special questions for business students",
-  // 	path: "/business",
-  // },
+  {
+    id: "sauder",
+    title: "Business UBC Test",
+    description: "Special questions for Sauder students",
+    path: "/sauder",
+  },
   // {
   // 	id: "engineering",
   // 	title: "Engineering UBC Test",
