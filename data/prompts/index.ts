@@ -30,7 +30,7 @@ const GENERAL = [
   "Lived in the 'worst' residence building (Vanier/Gage)",
   "Slept in a campus building because you missed the last bus home",
   "Made instant ramen in your dorm kettle",
-  "Stolen food from the dining hall",
+  "Seen a rat in a dining hall",
   "Snuck alcohol into the dorms",
   "Hooked up in your dorm while your roommate was sleeping",
   "Hooked up with someone who lived in your residence building",
@@ -46,7 +46,7 @@ const GENERAL = [
 
   // ICONIC UBC EXPERIENCES (13 questions)
   "Taken a photo with the UBC sign at University Boulevard",
-  "Participated in Storm the Wall",
+  "Been scammed at Harvest",
   "Did Storm the Wall",
   "Slid down the hill by the Rose Garden on a lunch tray after it snowed",
   "Witnessed the Engineer's red dye in the fountain prank",
