@@ -11,7 +11,7 @@ const redis = new Redis({
 
 const ratelimit = new Ratelimit({
 	redis: redis,
-	limiter: Ratelimit.slidingWindow(500, "10 m"), // 30 requests per 10 minutes
+	limiter: Ratelimit.slidingWindow(500, "10 m"), // 500 requests per 10 minutes
 	analytics: true,
 });
 
@@ -21,7 +21,9 @@ export async function POST(request: NextRequest) {
 			request.headers.get("x-real-ip") || 
 			"127.0.0.1";
 		
-		const identifier = `score:${ip}`;
+		const clientIp = ip.split(',')[0].trim();
+		
+		const identifier = `score:${clientIp}`;
 		
 		const { success, limit, reset, remaining } = await ratelimit.limit(identifier);
 		

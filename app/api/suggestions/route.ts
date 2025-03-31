@@ -1,6 +1,6 @@
-import { NextResponse, type NextRequest } from "next/server";
 import sql from "@/utils/db";
 import normalizePage from "@/utils/normalizePage";
+import { type NextRequest, NextResponse } from "next/server";
 import { Redis } from "@upstash/redis";
 import { Ratelimit } from "@upstash/ratelimit";
 
@@ -11,7 +11,7 @@ const redis = new Redis({
 
 const ratelimit = new Ratelimit({
 	redis: redis,
-	limiter: Ratelimit.slidingWindow(500, "10 m"), // 30 requests per 10 minutes
+	limiter: Ratelimit.slidingWindow(500, "10 m"), // 500 requests per minute
 	analytics: true,
 });
 
@@ -21,7 +21,9 @@ export async function POST(request: NextRequest) {
 			request.headers.get("x-real-ip") || 
 			"127.0.0.1";
 		
-		const identifier = `suggestion:${ip}`;
+		const clientIp = ip.split(',')[0].trim();
+		
+		const identifier = `suggestion:${clientIp}`;
 		
 		const { success, limit, reset, remaining } = await ratelimit.limit(identifier);
 		
@@ -33,50 +35,54 @@ export async function POST(request: NextRequest) {
 		
 		if (!success) {
 			return NextResponse.json(
-				{ error: "Too many suggestions. Please try again later." },
+				{ error: "Too many score submissions. Please try again later." },
 				{ 
 					status: 429,
 					headers
 				}
 			);
 		}
-		
-		const { suggestion, page } = await request.json();
+		const { score, page } = await request.json();
 		if (!page) {
 			return NextResponse.json({ error: "Page is required" }, { status: 400 });
 		}
-		if (
-			!suggestion ||
-			typeof suggestion !== "string" ||
-			suggestion.trim() === ""
-		) {
+		if (!score || typeof score !== "number" || score < 0 || score > 100) {
 			return NextResponse.json(
-				{ error: "Suggestion is required" },
+				{ error: "Score must be a number between 0 and 100" },
 				{ status: 400 },
 			);
 		}
-		
 		const result = await sql`
-      INSERT INTO suggestions (suggestion_text, page, created_at, status)
-      VALUES (${suggestion.trim()}, ${normalizePage(page) || null}, NOW(), 'pending')
+      INSERT INTO scores (score, page, created_at)
+      VALUES (${score}, ${normalizePage(page) || null}, NOW())
       RETURNING id
     `;
-		
 		if (result.length === 0) {
 			return NextResponse.json(
-				{ error: "Failed to submit suggestion" },
+				{ error: "Failed to submit score" },
 				{ status: 500 },
 			);
 		}
-		
-		return NextResponse.json(null, {
-			status: 200,
-			headers
-		});
-	} catch (error) {
-		console.error("Error submitting suggestion:", error);
+		const avgResult = await sql`
+	SELECT 
+		page,
+		AVG(score) as average_score
+	FROM
+		scores
+	WHERE page = ${normalizePage(page)}
+	GROUP BY page
+	`;
+		const avgScore = avgResult.length > 0 ? avgResult[0].average_score : null;
 		return NextResponse.json(
-			{ error: "Failed to submit suggestion" },
+			{
+				id: result[0].id,
+				average_score: avgScore,
+			}
+		);
+	} catch (error) {
+		console.error("Error submitting score:", error);
+		return NextResponse.json(
+			{ error: "Failed to submit score" },
 			{ status: 500 },
 		);
 	}
