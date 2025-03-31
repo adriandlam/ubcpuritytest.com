@@ -10,6 +10,8 @@
 		"format": "npx @biomejs/biome format --write ."
 	},
 	"dependencies": {
+		"@upstash/ratelimit": "^2.0.5",
+		"@upstash/redis": "^1.34.6",
 		"next": "15.2.4",
 		"postgres": "^3.4.5",
 		"react": "^19.0.0",
