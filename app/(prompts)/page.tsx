@@ -32,12 +32,12 @@ const TEST_CATEGORIES: TestCategory[] = [
 		description: "Special questions for arts majors",
 		path: "/arts",
 	},
-	// {
-	// 	id: "engineering",
-	// 	title: "Engineering UBC Test",
-	// 	description: "Special questions for engineering students",
-	// 	path: "/engineering",
-	// },
+	{
+		id: "engineering",
+		title: "Engineering UBC Test",
+		description: "Special questions for engineering students",
+		path: "/engineering",
+	},
 ];
 
 export default function Home() {
@@ -57,7 +57,7 @@ export default function Home() {
 					<span className="font-bold underline underline-offset-2">
 						Update:
 					</span>{" "}
-					We&apos;ve just added the Arts test, Engineering coming soon!
+					We&apos;ve just added the Arts and Engineering tests!
 				</p>
 			</div>
 
