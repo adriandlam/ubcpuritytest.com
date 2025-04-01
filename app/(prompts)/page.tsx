@@ -57,8 +57,7 @@ export default function Home() {
 					<span className="font-bold underline underline-offset-2">
 						Update:
 					</span>{" "}
-					We're working hard to add support for other categories like
-					Engineering.
+					We&apos;ve just added the Arts test, Engineering coming soon!
 				</p>
 			</div>
 
